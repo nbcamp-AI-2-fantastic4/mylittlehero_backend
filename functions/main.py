@@ -1,6 +1,6 @@
 # 메인페이지 기능 함수
 from pymongo import MongoClient
-import common
+import common, model
 
 client = MongoClient('mongodb://test:test@15.165.161.237', 27017)
 db = client.dbmylittlehero
@@ -21,7 +21,7 @@ def predict_img(user_img):
     dir = '../static/images/user/001.jpg'
 
     # 닮은 마블 캐릭터 예측 & 상위 3개 선정
-    results = common.predict_hero(user_img)[0:3]  # DB에 저장할 결과 데이터
+    results = model.predict_hero(user_img)[0:3]  # DB에 저장할 결과 데이터
 
     # 저장하기
     for result in results:
