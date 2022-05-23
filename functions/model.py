@@ -23,7 +23,7 @@ hero_class = [
 # return: 마블 캐릭터별 예측 확률 (확률이 높은 순으로 정렬)
 def predict_hero(user_img):
     # 임시코드
-    img_dir = 'static/images/user/001.jpg'
+    img_dir = 'static/images/user/002.jpg'
     image = load_img(img_dir, target_size=(224, 224))
     input_arr = img_to_array(image)
     input_arr = np.array([input_arr])
