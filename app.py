@@ -1,12 +1,18 @@
 from flask import Flask, redirect, url_for, render_template, jsonify, request
 
-
 app = Flask(__name__)
+
 
 # HTML 화면 보여주기
 @app.route('/')
 def home():
     return 'hello world'
+
+
+# @app.route('/result', methods=['GET'])
+# def result():
+#     return '테스트중입니다'
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
