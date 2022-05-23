@@ -46,7 +46,6 @@ def main_result():
     # 예측 결과 가져오기
     results = main.predict_img("")
 
-
     return jsonify({'results': results})
 
 
