@@ -1,3 +1,5 @@
+from functions import model, common, main
+
 from datetime import datetime, timedelta
 from functools import wraps
 import json
@@ -9,6 +11,7 @@ import hashlib
 from bson import ObjectId
 import jwt
 
+
 app = Flask(__name__)
 cors = CORS(app, resources={r'*': {'origins': '*'}})    # 접근 권한
 
@@ -16,10 +19,36 @@ client = MongoClient('mongodb://test:test@15.165.161.237', 27017)
 db = client.dbmylittlehero
 SECRET_KEY = 'SPARTA'
 
+
 # HTML 화면 보여주기
 @app.route('/')
 def home():
-    return 'hello world'
+    resp = Response("My Little Hero")
+    return resp
+
+
+# token으로 회원정보 반환 API
+@app.route('/user-info', methods=['GET'])
+def user():
+    token = request.args.get('token')
+    user_info = common.get_user_from_token(token)
+
+    return jsonify({'user_info': user_info})
+
+
+# 메인 결과 보여주기 API
+@app.route('/main/result', methods=['POST'])
+def main_result():
+    # token = request.form['token']
+    # user_img = request.files['user_img']
+
+    # 임시코드
+    # 예측 결과 가져오기
+    results = main.predict_img("")
+
+
+    return jsonify({'results': results})
+
 
 
 # DB에 회원가입 정보 저장
