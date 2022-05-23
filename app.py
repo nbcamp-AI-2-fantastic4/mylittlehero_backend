@@ -10,7 +10,7 @@ from bson import ObjectId
 import jwt
 
 app = Flask(__name__)
-cors = CORS(app, resources={r'*': {'origins': '*'}})
+cors = CORS(app, resources={r'*': {'origins': '*'}})    # 접근 권한
 
 client = MongoClient('mongodb://test:test@15.165.161.237', 27017)
 db = client.dbmylittlehero
