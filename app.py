@@ -12,9 +12,8 @@ import jwt
 app = Flask(__name__)
 cors = CORS(app, resources={r'*': {'origins': '*'}})
 
-client = MongoClient('localhost', 27017)
-db = client.MyLittleHero
-
+client = MongoClient('mongodb://test:test@15.165.161.237', 27017)
+db = client.dbmylittlehero
 SECRET_KEY = 'SPARTA'
 
 # HTML 화면 보여주기
