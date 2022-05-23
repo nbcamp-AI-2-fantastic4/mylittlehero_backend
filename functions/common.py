@@ -44,7 +44,7 @@ def save_user_img(user_img, email):
     mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
     filename = f'{mytime}'
 
-    save_to = f'static/images/{email}_{filename}.{extension}'
+    save_to = f'static/images/user/{email}_{filename}.{extension}'
     user_img.save(save_to)
 
     return save_to

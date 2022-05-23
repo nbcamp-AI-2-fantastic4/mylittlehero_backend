@@ -17,12 +17,10 @@ def predict_img(user_img):
 
     # 이미지 저장하기
     user_email = user_info['email']
-    # dir = common.save_user_img(user_img, user_email)
-    # 임시코드
-    dir = 'static/images/user/001.jpg'
+    dir = common.save_user_img(user_img, user_email)
 
     # 닮은 마블 캐릭터 예측 & 상위 3개 선정
-    results = model.predict_hero(user_img)[0:3]  # DB에 저장할 결과 데이터
+    results = model.predict_hero(dir)[0:3]  # DB에 저장할 결과 데이터
 
     # DB에 저장
     for result in results:
