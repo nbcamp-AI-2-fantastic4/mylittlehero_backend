@@ -40,11 +40,11 @@ def user():
 @app.route('/main/result', methods=['POST'])
 def main_result():
     # token = request.form['token']
-    # user_img = request.files['user_img']
+    user_img = request.files['user_img']
+    print(user_img)
 
-    # 임시코드
     # 예측 결과 가져오기
-    results = main.predict_img("")
+    results = main.predict_img(user_img)
 
     return jsonify({'results': results})
 
