@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from functools import wraps
 import json
 from urllib import request
-from flask import Flask, redirect, url_for, render_template, jsonify, request, Response, abort
+from flask import Flask, redirect, url_for, render_template, jsonify, request, Response, abort, send_file
 from flask_cors import CORS
 from pymongo import MongoClient
 import hashlib
@@ -132,15 +132,32 @@ def result():
             'accuracy': result['accuracy'],
             'hero': result['hero']
         }
+
         # hero_info db값을 가져오기 이때 element 리스트에 hero_info 원하는 값을 넣어주기
         hero_info = db.heros.find_one({'hero': element['hero']}, {'_id': False})
         element['hero_img'] = hero_info['hero_img']
         element['description'] = hero_info['description']
         all_list.append(element)
-        print(element)
     # for i in all_list:
     #     print(i)
     return jsonify({"all_result": all_list})
+
+
+# 클라이언트로 유저 이미지 파일 전송
+@app.route('/result/user-img', methods=['POST'])
+def down_file():
+    url = request.form['img_url']
+
+    print(url)
+
+    return send_file(url)
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':

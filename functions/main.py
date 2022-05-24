@@ -21,12 +21,12 @@ def predict_img(user_img, user_info):
 
     # DB에 저장
     for result in results:
+        result['accuracy'] = result['accuracy'].item()
         result['email'] = user_email
         result['user_img'] = dir
 
-        # db.results.insert_one(result)
-        # 임시코드
         print(result)
+        db.results.insert_one(result)
 
     # 클라이언트에 보내줄 결과 리스트
     view_results = []

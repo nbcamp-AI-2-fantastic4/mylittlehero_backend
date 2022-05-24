@@ -102,4 +102,4 @@ def create_user_db():
 # 더미 예측 결과를 DB에 저장
 def create_result_db():
     for result in dummy_results:
-        db.results.insert_one(result)
+        create_result_db
