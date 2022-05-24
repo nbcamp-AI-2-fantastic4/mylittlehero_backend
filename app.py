@@ -38,12 +38,14 @@ def user():
 # 메인 결과 보여주기 API
 @app.route('/main/result', methods=['POST'])
 def main_result():
-    # token = request.form['token']
+    token = request.form['token']
     user_img = request.files['user_img']
-    print(user_img)
+
+    # 토큰으로부터 유저 정보 가져오기
+    user_info = common.get_user_from_token(token)
 
     # 예측 결과 가져오기
-    results = main.predict_img(user_img)
+    results = main.predict_img(user_img, user_info)
 
     return jsonify({'results': results})
 
@@ -79,7 +81,6 @@ def sign_up():
         return jsonify({'result': 1})
 
 
-
 # 유저 로그인 후 클라이언트에 유저 토큰 반환
 # return : token = 현재 로그인 유저 토큰 반환
 @app.route("/login", methods=['POST'])
@@ -112,8 +113,6 @@ def sign_in():
     # print(token)
 
     return jsonify({'result': 1, 'token': token})   # token 반환!!!
-
-
 
 
 @app.route('/result', methods=['GET'])

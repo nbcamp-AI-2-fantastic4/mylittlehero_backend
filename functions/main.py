@@ -9,12 +9,9 @@ db = client.dbmylittlehero
 
 # 사용자 이미지로 예측 결과 저장
 # user_img: 사용자 이미지 파일
+# user_info: 사용자 정보
 # return: result - 가장 닮은 마블 캐릭터 정보 3개
-def predict_img(user_img):
-    # 현재 유저 정보 가져오기
-    # 임시코드
-    user_info = db.users.find_one({'email': 'kimphysicsman@gmail.com'}, {'_id': False, 'pw': False})
-
+def predict_img(user_img, user_info):
     # 이미지 저장하기
     user_email = user_info['email']
     dir = common.save_user_img(user_img, user_email)

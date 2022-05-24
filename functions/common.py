@@ -2,6 +2,7 @@
 from pymongo import MongoClient
 import jwt
 from datetime import datetime
+from bson.objectid import ObjectId
 
 client = MongoClient('mongodb://test:test@15.165.161.237', 27017)
 db = client.dbmylittlehero
@@ -11,8 +12,16 @@ SECRET_KEY = 'SPARTA'
 # DB에서 사용자 정보 불러오기
 # email: 사용자 이메일
 # return: 사용자 정보
-def get_user_info(email):
+def get_user_info_from_email(email):
     user_info = db.users.find_one({'email': email}, {'_id': False, 'pw': False})
+    return user_info
+
+
+# DB에서 사용자 정보 불러오기
+# id: 사용자 object id
+# return: 사용자 정보
+def get_user_info_from_id(id):
+    user_info = db.users.find_one({'_id': id}, {'_id': False, 'pw': False})
     return user_info
 
 
@@ -29,8 +38,9 @@ def get_hero_info(hero):
 # return: 사용자 정보
 def get_user_from_token(token):
     payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
-    email = payload['id']
-    user_info = get_user_info(email)
+    object_id = payload['id']
+    user_info = get_user_info_from_id(ObjectId(object_id))
+
     return user_info
 
 
