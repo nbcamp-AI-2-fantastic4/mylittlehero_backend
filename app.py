@@ -12,6 +12,7 @@ from bson import ObjectId
 import jwt
 
 
+
 client = MongoClient('mongodb://test:test@15.165.161.237', 27017)
 db = client.dbmylittlehero
 app = Flask(__name__)
@@ -26,24 +27,29 @@ def home():
     return resp
 
 
-# token으로 회원정보 반환 API
+# token받아서 회원정보 반환 API
 @app.route('/user-info', methods=['GET'])
 def user():
-    token = request.args.get('token')
-    user_info = common.get_user_from_token(token)
+    # headers에서 토큰 겟
+    token = request.headers.get('Authorization')
 
+    # common.py 파일의 get_user_from_token() 함수 실행해서 리턴값 저장
+    user_info = common.get_user_from_token(token)
+    # print(user_info)
     return jsonify({'user_info': user_info})
 
 
 # 메인 결과 보여주기 API
 @app.route('/main/result', methods=['POST'])
 def main_result():
-    # token = request.form['token']
+    token = request.form['token']
     user_img = request.files['user_img']
-    print(user_img)
+
+    # 토큰으로부터 유저 정보 가져오기
+    user_info = common.get_user_from_token(token)
 
     # 예측 결과 가져오기
-    results = main.predict_img(user_img)
+    results = main.predict_img(user_img, user_info)
 
     return jsonify({'results': results})
 
@@ -79,7 +85,6 @@ def sign_up():
         return jsonify({'result': 1})
 
 
-
 # 유저 로그인 후 클라이언트에 유저 토큰 반환
 # return : token = 현재 로그인 유저 토큰 반환
 @app.route("/login", methods=['POST'])
@@ -112,8 +117,6 @@ def sign_in():
     # print(token)
 
     return jsonify({'result': 1, 'token': token})   # token 반환!!!
-
-
 
 
 @app.route('/result', methods=['GET'])
