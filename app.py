@@ -12,6 +12,7 @@ from bson import ObjectId
 import jwt
 
 
+
 client = MongoClient('mongodb://test:test@15.165.161.237', 27017)
 db = client.dbmylittlehero
 app = Flask(__name__)
@@ -26,12 +27,15 @@ def home():
     return resp
 
 
-# token으로 회원정보 반환 API
+# token받아서 회원정보 반환 API
 @app.route('/user-info', methods=['GET'])
 def user():
-    token = request.args.get('token')
-    user_info = common.get_user_from_token(token)
+    # headers에서 토큰 겟
+    token = request.headers.get('Authorization')
 
+    # common.py 파일의 get_user_from_token() 함수 실행해서 리턴값 저장
+    user_info = common.get_user_from_token(token)
+    # print(user_info)
     return jsonify({'user_info': user_info})
 
 

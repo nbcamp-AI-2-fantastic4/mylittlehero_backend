@@ -2,7 +2,7 @@
 from pymongo import MongoClient
 import jwt
 from datetime import datetime
-from bson.objectid import ObjectId
+from bson import ObjectId
 
 client = MongoClient('mongodb://test:test@15.165.161.237', 27017)
 db = client.dbmylittlehero
@@ -37,10 +37,13 @@ def get_hero_info(hero):
 # token: 사용자 토큰
 # return: 사용자 정보
 def get_user_from_token(token):
+    # 토큰값 디코딩해서 object id가 string상태로 payload에 저장
     payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
-    object_id = payload['id']
-    user_info = get_user_info_from_id(ObjectId(object_id))
-
+    # string 상태에서 ObjectId 붙여서 옵젝화해야 DB에서 찾을수있다.
+    # '_id': False 해야 object 에러 안남
+    user_info = db.users.find_one({'_id': ObjectId(payload['id'])}, {'_id': False})
+    
+    # 딕셔너리 형태의 유저정보 리턴
     return user_info
 
 
