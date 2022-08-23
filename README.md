@@ -84,11 +84,11 @@
 
 ### 1. 기획문서
 
-> [MyLittleTrip - Notion](https://www.notion.so/kimphysicsman/MLT-My-Little-Trip-716433a2fc8940d9870bd83b63570646?v=0c42e849923d4449aade69046bf597d1)
+> [MyLittleHero - Notion](https://www.notion.so/kimphysicsman/My-Little-Hero-13b315a07f1940c79ddc81ad06c79fd0)
 
-### 2. 여행추천 알고리즘
+### 2. 히어로 데이터셋
 
-> [Travel_recommedation - Github](https://github.com/kimphysicsman/Travel_recommedation)
+> [Marvel Heroes - Kaggle](https://www.kaggle.com/datasets/hchen13/marvel-heroes)
 
 ### 3. 발표영상
 
