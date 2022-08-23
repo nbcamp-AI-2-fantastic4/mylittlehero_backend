@@ -37,12 +37,6 @@
 > Keras  
 > mongo DB  
 
-### 2. Front-end
-
-> html 5  
-> css  
-> javascript
-
 <br />
 
 # 📊 ERD 
