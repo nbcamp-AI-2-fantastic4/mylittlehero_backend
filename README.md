@@ -96,7 +96,7 @@
   <tbody>
     <tr>
       <td>
-        <p align="center"> 22.08.16 발표 </p>
+        <p align="center"> 22.05.25 발표 </p>
         <a href="https://youtu.be/EVSkMMqKbns" title="MyLittleHero 최종발표">
           <img align="center" src="https://user-images.githubusercontent.com/104434422/186104467-2ef162b7-fe34-4d8c-abb3-a0c6858a5fea.png" width="300" >
         </a>
