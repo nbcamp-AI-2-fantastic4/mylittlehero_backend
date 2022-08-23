@@ -50,7 +50,7 @@
 <details>
 <summary>ERD</summary>
 <div markdown="1" style="padding-left: 15px;">
-<img src="https://user-images.githubusercontent.com/68724828/186067947-f255f9a4-d92d-45cd-ab7c-419ec92943f8.png" width="800px"/>
+<img src="https://user-images.githubusercontent.com/104434422/186101629-0fe314ae-6ab8-4145-a6e7-4121325268e9.png" width="800px"/>
 </div>
 </details>
 
@@ -59,7 +59,7 @@
 <details>
 <summary>Structure</summary>
 <div markdown="1" style="padding-left: 15px;">
-<img src="https://user-images.githubusercontent.com/68724828/186079270-28793ba1-466e-421f-baf2-563b890c926f.png" />
+<img src="" />
 </div>
 </details>
 
