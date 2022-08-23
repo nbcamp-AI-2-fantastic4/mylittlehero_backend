@@ -45,7 +45,7 @@
 
 <br />
 
-# 📊 ERD & Structure
+# 📊 ERD 
 
 <details>
 <summary>ERD</summary>
