@@ -96,17 +96,12 @@
   <tbody>
     <tr>
       <td>
-        <p align="center"> 22.08.05 발표 </p>
-        <a href="https://www.youtube.com/watch?v=6B0DSjvsqj0&t=1s" title="MyLittleTrip 중간발표">
-          <img align="center" src="https://user-images.githubusercontent.com/68724828/186087151-e0f0ebed-08c1-4a99-9af0-a8c48c536205.png" width="300" >
-        </a>
-      </td>
-      <td>
         <p align="center"> 22.08.16 발표 </p>
-        <a href="https://youtu.be/9eoYpRqTZUU" title="MyLittleTrip 최종발표">
-          <img align="center" src="https://user-images.githubusercontent.com/68724828/186087151-e0f0ebed-08c1-4a99-9af0-a8c48c536205.png" width="300" >
+        <a href="https://youtu.be/EVSkMMqKbns" title="MyLittleHero 최종발표">
+          <img align="center" src="https://user-images.githubusercontent.com/104434422/186104467-2ef162b7-fe34-4d8c-abb3-a0c6858a5fea.png" width="300" >
         </a>
       </td>
     </tr>
   </tbody>
 </table>
+
