@@ -56,14 +56,14 @@
 
 <br />
 
-<details>
+<!-- <details>
 <summary>Structure</summary>
 <div markdown="1" style="padding-left: 15px;">
 <img src="" />
 </div>
 </details>
 
-<br />
+<br /> -->
 
 # 🔑 핵심기능
 
